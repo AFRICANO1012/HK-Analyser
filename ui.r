@@ -65,17 +65,11 @@ dashboardPage(
   #SideBar setup
   dashboardSidebar(
     sidebarMenu(
-      menuItem("DASHBOARD",tabName = "dashboard",icon = icon("dashboard"),badgeLabel ="Read Me",badgeColor = "red"
-              
-               ),
+      menuItem("DASHBOARD",tabName = "dashboard",icon = icon("dashboard"),badgeLabel ="Read Me",badgeColor = "red"),
       
-      menuItem("ANALYSIS",tabName = "analysis",icon = icon("bar-chart-o")
-              
-               ),
+      menuItem("ANALYSIS",tabName = "analysis",icon = icon("bar-chart-o") ),
       
-      menuItem("ABOUT",tabName = "about",icon = icon("th")
-               
-               )
+      menuItem("ABOUT",tabName = "about",icon = icon("th"))
     ),
  
       tags$div(
@@ -88,7 +82,6 @@ dashboardPage(
   
   #Dashboard body setup
   dashboardBody(
-    
     setBackgroundColor(
       color = "#90EE90",
       gradient = "radial",
@@ -104,46 +97,33 @@ dashboardPage(
               h3(icon("atom")," DASHBOARD ",style="text-align:center;"),
               tabsetPanel(
                 tabPanel("Data Cleaning and Upload",icon = icon("data"),
-                         tags$br(),
-                         
+                         tags$br(), 
                          sidebarLayout(
                            sidebarPanel(
                              background = "olive",
-                             
-                             fileInput(inputId = "datafile", label = "Upload The DataSet",accept = ".csv", placeholder = "Please Upload a dataset"),
-                             
+                             fileInput(inputId = "datafile", label = "Upload The DataSet",accept = ".csv", placeholder = "Please Upload a dataset"),  
                              tags$br()  ,
                              height = 120,
                              background = "yellow",
                              tags$a(h3("*EffortLess Analysis For Your Comfort & with Creativity*",style="text-align:center;")),
                              div(tags$img(height="100%",width="90%",src="DA1.png"),style="text-align:center;"),
-                             div(tags$br()),
-                             
+                             div(tags$br()),                            
                              downloadButton("sample", label = "Get Sample Data",icon = shiny::icon("download"))
                            ),
                            mainPanel(
-                             
                              title = "Data Cleaning Steps", status = "warning",
                              div(tags$h5("Step1: Open DataSet exported from the SACCO system in Excel")),
                              div(h5("Step2: Modify the Columns and Rows of the Dataset with respect to Attributes in the format shown in the Image")),
                              div(h5("Step3: Make Sure the Spelling and case of the Headers is exactly as shown in the image")),
                              div(h5("Step4: Save the Edited file as a csv.")),
                              div(h5("Step5: And then you can Upload the Data To the System")),
-                             
                              div(h4("DataSet Format",style="text-align:center;"),
                                  tags$img(height="100%",width="90%",src="FORMAT.png"),style="text-align:left;")
                            )
-                         ),
-                         
-                         
-                         
-                         
-                         
-                         
+                         ),              
                 ),
                 tabPanel("View Uploaded Data",icon = icon("car"),
                          tags$br(),
-                         
                          fluidPage(
                            dataTableOutput("head"),
                          ),
@@ -160,26 +140,18 @@ dashboardPage(
                   tabsetPanel(
                     tabPanel("Share Amount",icon = icon("line-chart"),
                              highchartOutput("S_Amount"),
-                             
-                             
                     ),
                     tabPanel("Number Of Shares",icon = icon("gg-circle"),
-                             highchartOutput("S_Number"),
-                             
+                             highchartOutput("S_Number"),     
                     ),
                     tabPanel("Share Value",icon = icon("table"),
-                             highchartOutput("S_Value"),
-                            
+                             highchartOutput("S_Value"),       
                     ),
                     tabPanel("Correlation",icon = icon("houzz"),
-                             highchartOutput("S_Correlation"),
-                             
+                             highchartOutput("S_Correlation"),         
                     ),
-                    tabPanel("Description",icon = icon("safari"),
-                             
-                             DTOutput ("Describe"),
-                             
-                             
+                    tabPanel("Description",icon = icon("safari"),       
+                             DTOutput ("Describe"),       
                     ),
                     tabPanel("Interest Rate",icon = icon("sellsy"),
                              highchartOutput("S_Interest"),
